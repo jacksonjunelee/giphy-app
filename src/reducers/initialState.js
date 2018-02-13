@@ -1,3 +1,4 @@
 export default {
-  gifs: []
+  gifs: [],
+  ajaxCallsInProgress: 0
 };

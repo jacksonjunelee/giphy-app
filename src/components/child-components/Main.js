@@ -1,16 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Grid from './child-components/Grid';
+import Grid from './Grid';
+import Single from './Single';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.render = this.render.bind(this);
+  }
+
   render() {
     let view;
 
-    if (this.params.postId) {
+    if (this.props.postId) {
       view = <Single />
     } else {
-      <Grid />
+      view = <Grid
+        gifs={this.props.gifs}
+      />
     }
+
 
     return (
       <div>

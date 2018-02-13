@@ -1,24 +1,19 @@
 import React from 'react';
-// import Single from './Single';
+import Single from './Single';
 
 class Grid extends React.Component {
-  constructor() {
-    super();
-    console.log('test')
-    this.state = { };
-
-    this.getTrendingGif = this.getTrendingGif.bind(this);
-
-    this.getTrendingGif();
-  }
-
-  getTrendingGif() {
-  }
-
   render() {
     return (
       <div className="photo-grid">
-
+        {
+          Object.keys(this.props.gifs).map( key => (
+            <Single
+              key={key}
+              index={key}
+              gif={this.props.gifs[key]}
+            />
+          ))
+        }
       </div>
     )
   }

@@ -22,5 +22,8 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  },
+  "devDependencies": {
+    "redux-immutable-state-invariant": "^2.1.0"
   }
 }

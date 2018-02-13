@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import gifs from './gifReducer';
+import ajaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
-  gif
+  gifs,
+  ajaxCallsInProgress
 });
 
 export default rootReducer;
