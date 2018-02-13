@@ -1,0 +1,26 @@
+{
+  "name": "giphy-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-redux": "^5.0.6",
+    "react-router": "4.0.0-alpha.3",
+    "react-scripts": "1.1.1",
+    "whatwg-fetch": "^2.0.3",
+    "react-router-redux": "4.0.4",
+    "redux": "3.5.2",
+    "redux-thunk": "2.0.1",
+    "toastr": "2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  }
+}
