@@ -3,7 +3,7 @@ import React from 'react';
 class Search extends React.Component {
   search(event) {
     event.preventDefault();
-    this.props.searchGIF(this.searchInput);
+    this.props.searchGIF(this.searchInput.value);
   }
 
   render() {
