@@ -2,22 +2,24 @@ import React from 'react';
 import { Link } from 'react-router';
 import Grid from './Grid';
 import Single from './Single';
+import Search from './Search';
 
 class Main extends React.Component {
-  constructor() {
-    super();
-    this.render = this.render.bind(this);
-  }
-
   render() {
     let view;
 
     if (this.props.postId) {
       view = <Single />
     } else {
-      view = <Grid
-        gifs={this.props.gifs}
-      />
+      view =
+      <div>
+        <Search
+          searchGIF={this.props.searchGIF}
+        />
+        <Grid
+          gifs={this.props.gifs}
+        />
+      </div>
     }
 
 

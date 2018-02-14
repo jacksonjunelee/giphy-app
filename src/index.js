@@ -5,8 +5,8 @@ import configureStore from './store';
 import {Provider} from 'react-redux';
 import {loadGifs} from './actions/gifActions';
 
-// // Import css
-// import css from './styles/style.styl';
+// Import css
+import css from './styles/styles.css';
 
 // Import Components
 import App from './components/App';

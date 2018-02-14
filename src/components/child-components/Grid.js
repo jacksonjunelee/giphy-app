@@ -4,7 +4,7 @@ import Single from './Single';
 class Grid extends React.Component {
   render() {
     return (
-      <div className="photo-grid">
+      <div className="gif-grid">
         {
           Object.keys(this.props.gifs).map( key => (
             <Single
