@@ -3,8 +3,12 @@ import React from 'react';
 class History extends React.Component {
   render() {
     return (
-      <div className="gif-container">
-        test
+      <div>
+        {
+          Object.keys(this.props.history).map( key => (
+            <p>{this.props.history[key]}</p>
+          ))
+        }
       </div>
     )
   }

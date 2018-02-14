@@ -6,6 +6,7 @@ import {apiKey} from '../apiKey';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import * as gifActions from '../actions/gifActions';
+import * as historyActions from '../actions/historyActions';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,13 +56,14 @@ App.propTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     gifs: state.gifs,
-    loading: state.ajaxCallsInProgress > 0
+    loading: state.ajaxCallsInProgress > 0,
+    history: state.history
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(gifActions, dispatch)
+    actions: bindActionCreators({gifActions, historyActions}, dispatch),
   };
 }
 

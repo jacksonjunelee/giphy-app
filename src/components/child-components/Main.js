@@ -8,38 +8,28 @@ import History from './History';
 
 class Main extends React.Component {
   render() {
-    let view;
-
-    if (this.props.postId) {
-      view = <Single />
-    } else {
-      view =
-      <div>
-        <Search
-          searchGIF={this.props.searchGIF}
-        />
-        <div className="history-grid">
-          <div className="grid-container">
-            <Grid
-              gifs={this.props.gifs}
-            />
-          </div>
-          <div className="history-container">
-            <History
-              history={this.props.history}
-            />
-          </div>
-        </div>
-      </div>
-    }
-
-
     return (
       <div>
         <h1>
           <Link to="/">Giphy App</Link>
         </h1>
-        {view}
+        <div>
+          <Search
+            searchGIF={this.props.searchGIF}
+          />
+          <div className="history-grid">
+            <div className="grid-container">
+              <Grid
+                gifs={this.props.gifs}
+              />
+            </div>
+            <div className="history-container">
+              <History
+                history={this.props.history}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
