@@ -6,7 +6,10 @@ class History extends React.Component {
       <div>
         {
           Object.keys(this.props.history).map( key => (
-            <p>{this.props.history[key]}</p>
+            <p key={key}
+              onClick={() => this.props.updateSearch(this.props.history[key])}>
+              {this.props.history[key]}
+            </p>
           ))
         }
       </div>

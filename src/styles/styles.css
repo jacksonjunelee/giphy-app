@@ -6,9 +6,12 @@ body {
   height: 1000px; }
 
 body {
-  font-family: billabong, 'billabongregular';
+  font-family: 'Helvetica', 'Arial', sans-serif;
   color: black;
   font-size: 16px; }
+
+p:hover {
+  cursor: pointer; }
 
 h1 {
   text-align: center;
@@ -25,10 +28,14 @@ h1 {
 
 .gif-grid {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100rem; }
 
 .gif-container {
-  flex: 0 0 20%; }
+  max-width: 200px; }
+  .gif-container p {
+    margin-top: 0; }
 
 .search {
   max-width: 500px;
@@ -41,9 +48,11 @@ h1 {
       font-size: 2rem; }
 
 .history-grid {
-  display: flex; }
+  display: flex;
+  justify-content: center; }
   .history-grid .grid-container {
-    flex: 0 0 85%; }
+    flex: 0 0 85%;
+    max-width: 59rem; }
   .history-grid .history-container {
     flex: 0 0 10%;
     margin: 0 1rem;

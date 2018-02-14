@@ -14,16 +14,20 @@ class App extends React.Component {
 
     this.state = {
       gifs: Object.assign({}, this.props.gifs),
-      history: Object.assign({}, this.props.history)
+      history: Object.assign({}, this.props.history),
+      loading: false,
+      searchText: ''
     };
 
     this.searchGIF = this.searchGIF.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       gifs: Object.assign({}, nextProps.gifs),
-      history: Object.assign({}, nextProps.history)
+      history: Object.assign({}, nextProps.history),
+      loading: Object.assign({}, nextProps.loading)
     });
   }
 
@@ -43,14 +47,19 @@ class App extends React.Component {
     }))
   }
 
+  updateSearch(searchText) {
+    this.setState({ searchText });
+  }
+
   render() {
     return (
       <Main
         searchGIF={this.searchGIF}
-        loading={this.props.loading}
+        loading={this.state.loading}
         gifs={this.state.gifs}
         history={this.state.history}
-        postId={this.props.params.postId}
+        updateSearch={this.updateSearch}
+        searchText={this.state.searchText}
       />
     )
   }
