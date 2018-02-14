@@ -12,18 +12,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      gifs: Object.assign({}, this.props.gifs)
+      gifs: Object.assign({}, this.props.gifs),
+      history: Object.assign({}, this.props.history)
     };
 
     this.searchGIF = this.searchGIF.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({gifs: Object.assign({}, nextProps.gifs)});
+    this.setState({
+      gifs: Object.assign({}, nextProps.gifs),
+      history: Object.assign({}, nextProps.history)
+    });
   }
 
   searchGIF(searchText) {
-    
     const giphyPromise =     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchText}&limit=25&offset=0&rating=G&lang=en`);
 
     giphyPromise.then(data => data.json()).then(gifs => {
@@ -37,6 +40,7 @@ class App extends React.Component {
         searchGIF={this.searchGIF}
         loading={this.props.loading}
         gifs={this.state.gifs}
+        history={this.state.history}
         postId={this.props.params.postId}
       />
     )

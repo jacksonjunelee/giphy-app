@@ -1,4 +1,5 @@
 export default {
   gifs: [],
-  ajaxCallsInProgress: 0
+  ajaxCallsInProgress: 0,
+  history: []
 };
