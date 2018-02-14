@@ -17,6 +17,7 @@ class Main extends React.Component {
           <Search
             searchGIF={this.props.searchGIF}
             searchText={this.props.searchText}
+            searchGIFHistory={this.props.searchGIFHistory}
           />
           <div className="history-grid">
             <div className="grid-container">

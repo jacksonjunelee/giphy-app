@@ -21,30 +21,37 @@ class App extends React.Component {
 
     this.searchGIF = this.searchGIF.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.searchGIFHistory = this.searchGIFHistory.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       gifs: Object.assign({}, nextProps.gifs),
       history: Object.assign({}, nextProps.history),
-      loading: Object.assign({}, nextProps.loading)
+      loading: Object.assign({}, nextProps.loading),
+      searchText: ''
     });
   }
 
   searchGIF(searchText) {
     const giphyPromise =     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchText}&limit=25&offset=0&rating=G&lang=en`);
 
-    this.saveHistory(searchText);
+    this.updateSearch(searchText);
 
     giphyPromise.then(data => data.json()).then(gifs => {
       return this.setState({gifs: gifs.data});
     });
   }
 
+  searchGIFHistory(searchText) {
+    this.searchGIF(searchText);
+    this.saveHistory(searchText);
+  }
+
   saveHistory(searchText) {
     this.setState(prevState => ({
       history: [searchText, ...prevState.history]
-    }))
+    }));
   }
 
   updateSearch(searchText) {
@@ -60,6 +67,7 @@ class App extends React.Component {
         history={this.state.history}
         updateSearch={this.updateSearch}
         searchText={this.state.searchText}
+        searchGIFHistory={this.searchGIFHistory}
       />
     )
   }
@@ -81,7 +89,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({gifActions, historyActions}, dispatch),
+    actions: bindActionCreators(historyActions, dispatch),
   };
 }
 

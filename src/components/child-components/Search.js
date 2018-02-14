@@ -2,15 +2,19 @@ import React from 'react';
 
 class Search extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.searchText) {
-      // this.searchInput.value = nextProps.searchText;
-      // this.props.searchGIF(nextProps.searchText);
+    if (!nextProps.searchText) {
+      this.searchInput.value = '';
+    }
+
+    if (this.searchInput.value !== nextProps.searchText) {
+      this.searchInput.value = nextProps.searchText;
+      this.props.searchGIF(nextProps.searchText);
     }
   }
 
   search(event) {
     event.preventDefault();
-    this.props.searchGIF(this.searchInput.value);
+    this.props.searchGIFHistory(this.searchInput.value);
   }
 
   render() {

@@ -6,8 +6,8 @@ export function loadHistorySuccess(history) {
   return {type: types.LOAD_HISTORY_SUCCESS, history};
 }
 
-export function updateHistorySuccess(history) {
-  return {type: types.UPDATE_HISTORY_SUCCESS, history};
+export function createHistorySuccess(history) {
+  return {type: types.CREATE_HISTORY_SUCCESS, history};
 }
 
 export function loadHistory() {
@@ -16,14 +16,8 @@ export function loadHistory() {
   };
 }
 
-// export function saveCourse(course) {
-//   return function (dispatch, getState) {
-//     dispatch(beginAjaxCall());
-//     return CourseApi.saveCourse(course).then(course => {
-//       course.id ? dispatch(updateCourseSuccess(course)) : dispatch(createCourseSuccess(course));
-//     }).catch(error => {
-//       dispatch(ajaxCallError(error));
-//       throw(error);
-//     });
-//   };
-// }
+export function saveHistory(history) {
+  return function (dispatch, getState) {
+    return dispatch(createHistorySuccess(history));
+  };
+}
