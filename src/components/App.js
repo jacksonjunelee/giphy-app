@@ -30,9 +30,17 @@ class App extends React.Component {
   searchGIF(searchText) {
     const giphyPromise =     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchText}&limit=25&offset=0&rating=G&lang=en`);
 
+    this.saveHistory(searchText);
+
     giphyPromise.then(data => data.json()).then(gifs => {
       return this.setState({gifs: gifs.data});
     });
+  }
+
+  saveHistory(searchText) {
+    this.setState(prevState => ({
+      history: [searchText, ...prevState.history]
+    }))
   }
 
   render() {
@@ -50,7 +58,8 @@ class App extends React.Component {
 
 App.propTypes = {
   gifs: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  history: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
